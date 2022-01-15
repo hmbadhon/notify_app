@@ -4,8 +4,7 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:http/http.dart' as http;
 
 class NetworkServices {
-  final String serverKey =
-      'AAAAVIMIBeQ:APA91bFv64-9D59ST2XKcONUwmBg7uhHYZ4znUAxoYANyjTDUsK6hq033EA5JeGMQCQbI7BjYdqRPHu8W-JhjolNrNeOxAZ85p50qrPSWHlM3rm3mhTUSdncsfBmod-D9YnZipw2cb0e';
+  final String serverKey = 'your server key';
   static var client = http.Client();
 
   void send({
