@@ -13,9 +13,11 @@ SharedPreferences? prefs;
 void main() async {
   await FCMConfig.instance
       .init(
-    defaultAndroidChannel: const AndroidNotificationChannel(
-      'test',
-      'test app',
+    defaultAndroidForegroundIcon: '@drawable/notification_icon',
+     defaultAndroidChannel: const AndroidNotificationChannel(
+      'high_importance_channel',
+      'HMB',
+      importance: Importance.high,
     ),
   )
       .then(
