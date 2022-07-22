@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:fcm_config/fcm_config.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -10,11 +12,18 @@ import 'package:hmb_app/view/splash/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences? prefs;
+
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  await Firebase.initializeApp();
+  log('Handling a background message ${message.messageId}');
+}
+
 void main() async {
   await FCMConfig.instance
       .init(
+    onBackgroundMessage: _firebaseMessagingBackgroundHandler,
     defaultAndroidForegroundIcon: '@drawable/notification_icon',
-     defaultAndroidChannel: const AndroidNotificationChannel(
+    defaultAndroidChannel: const AndroidNotificationChannel(
       'high_importance_channel',
       'HMB',
       importance: Importance.high,

@@ -49,7 +49,6 @@ class _HomeScreenState extends State<HomeScreen>
 
   int? selectedPageId;
 
-
   @override
   void initState() {
     firebaseBgNotify();
@@ -59,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen>
   void firebaseBgNotify() {
     FirebaseMessaging.onMessageOpenedApp.listen((message) {
       log("Handling a background message: ${message.data}");
-      Get.to(() => NotificationScreen());
+      // Get.to(() => NotificationScreen());
     });
   }
 

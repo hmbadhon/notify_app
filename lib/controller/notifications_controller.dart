@@ -28,6 +28,11 @@ class NotificationsController extends GetxController {
     FCMConfig.instance.local.displayNotification(
       title: title,
       body: body,
+      // android: AndroidNotificationDetails(
+      //   'channelId',
+      //   'channelName',
+      //   color: Color.red,
+      // ),
       data: <String, dynamic>{
         'id': pageNumber,
         'status': 'page',
